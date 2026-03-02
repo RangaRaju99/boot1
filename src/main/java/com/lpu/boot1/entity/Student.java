@@ -1,11 +1,36 @@
 package com.lpu.boot1.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
+@Entity
 public class Student {
 
+	@Id
 	private int id;
 	private String name;
 	private long phone;
 	
+	
+	@JoinColumn(name="student_college")
+	@ManyToOne(fetch=FetchType.LAZY)
+	private College college;
+	
+	
+	public Student() {
+		super();
+	}
+
+	public Student(int id, String name, long phone) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.phone = phone;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -30,8 +55,15 @@ public class Student {
 		this.phone = phone;
 	}
 
+	
 
+	public College getCollege() {
+		return college;
+	}
 
+	public void setCollege(College college) {
+		this.college = college;
+	}
 
 	@Override
 	public String toString() {
