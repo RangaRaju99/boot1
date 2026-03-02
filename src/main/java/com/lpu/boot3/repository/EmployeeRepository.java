@@ -1,0 +1,12 @@
+package com.lpu.boot3.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.lpu.boot3.entity.Employee;
+
+
+@Repository
+public interface EmployeeRepository extends JpaRepository<Employee, Integer>{
+
+}
